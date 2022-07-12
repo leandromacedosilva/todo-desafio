@@ -22,25 +22,7 @@ app.post('/accounts/users', (request, response) => {
 
   return response.json({data: body});
 
-  const { name, username } = request.body;
 
-  const userAlreadyExists = users.some(
-    (users) => users.username === username
-  );
-
-  if(userAlreadyExists) {
-    return response.status(400).send('User already exists in system!');
-  };
-
-  const users = {
-    id: uuidV4(),
-    name,
-    username,
-    todos: []
-  };
-
-  users.push({users});
-  return response.status(200).json({warning: 'User included in account with success!'});
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
