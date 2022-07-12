@@ -1,3 +1,7 @@
 const app = require('./');
 
-app.listen(3333);
+const port = 8888;
+
+app.listen(port, () => {
+    console.log(`Server running at http://127.0.0.1:${port}`);
+});
