@@ -1,4 +1,5 @@
 const express = require('express');
+
 const cors = require('cors');
 
 const { v4: uuidV4 } = require('uuid');
@@ -13,12 +14,12 @@ const users = [];
 
 function checksExistsUserAccount(request, response, next) {
   // Complete aqui
-}
+};
 
 app.post('/accounts/users', (request, response) => {
 
   const body = request.body;
-  
+
   return response.json({data: body});
 
   const { name, username } = request.body;
@@ -29,14 +30,14 @@ app.post('/accounts/users', (request, response) => {
 
   if(userAlreadyExists) {
     return response.status(400).send('User already exists in system!');
-  }
+  };
 
   const users = {
     id: uuidV4(),
     name,
     username,
     todos: []
-  }
+  };
 
   users.push({users});
   return response.status(200).json({warning: 'User included in account with success!'});
