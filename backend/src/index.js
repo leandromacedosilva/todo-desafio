@@ -41,7 +41,7 @@ app.post('/users', (request, response) => {
     todos: []
   }
 
-  users.push(users);
+  users.push({users});
 
   return response.status(200).json({Warnning: 'User successfully  added to system'});
 });
