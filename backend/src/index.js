@@ -16,13 +16,34 @@ function checksExistsUserAccount(request, response, next) {
   // Complete aqui
 };
 
-app.post('/accounts/users', (request, response) => {
+app.post('/users', (request, response) => { 
 
   const body = request.body;
+  console.log(body);
 
-  return response.json({data: body});
- 
+  const usersAlreadyExists = users.some(
+    (users) => users.username === username
+    );
 
+    if(usersAlreadyExists){
+      return response.status(200).json({Warnning: 'User already exists in system'});
+    };
+
+  const {
+    name,
+    username
+  } = request.body;
+
+  const users = {
+    id: uuidV4(),
+    name,
+    username,
+    todos: []
+  }
+
+  users.push(users);
+
+  return response.status(200).json({Warnning: 'User successfully  added to system'});
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
