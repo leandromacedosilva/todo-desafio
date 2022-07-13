@@ -1,10 +1,17 @@
+// import do módulo EXPRESS   
 const express = require('express');
 
+// import do módulo CORS
 const cors = require('cors');
 
+// import do módulo UUID library
 const { v4: uuidV4 } = require('uuid');
 
+/* atribuição das CONST app ao
+ *  método EXPRESS()
+ */
 const app = express();
+
 
 app.use(cors());
 
