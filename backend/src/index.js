@@ -18,21 +18,21 @@ function checksExistsUserAccount(request, response, next) {
 
 app.post('/users', (request, response) => { 
 
-  const body = request.body;
-  console.log(body);
-
-  const usersAlreadyExists = users.some(
-    (users) => users.username === username
-    );
-
-    if(usersAlreadyExists){
-      return response.status(200).json({Warnning: 'User already exists in system'});
-    };
+  //const body = request.body;
+  //console.log(body);
 
   const {
     name,
     username
   } = request.body;
+
+  const userAlreadyExists = users.some(
+    (user) => user.username === username
+    );
+
+    if(userAlreadyExists){
+      return response.status(400).json({Warnning: 'User already exists in system.'});
+    };
 
   const users = {
     id: uuidV4(),
