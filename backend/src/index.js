@@ -17,8 +17,8 @@ app.use(cors());
 app.use(express.json());
 
 /* definido o array onde as informações 
- * serão persisitdas em tempo de execução 
- * código  
+ * serão persistidas em tempo de execução 
+ * do código  
  */
 const users = [];
 
