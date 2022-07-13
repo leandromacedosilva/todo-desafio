@@ -12,15 +12,32 @@ const { v4: uuidV4 } = require('uuid');
  */
 const app = express();
 
-
 app.use(cors());
 
 app.use(express.json());
 
+/* definido o array onde as informações 
+ * serão persisitdas em tempo de execução 
+ * código  
+ */
 const users = [];
 
+// checagem de conta por usuário
 function checksExistsUserAccount(request, response, next) {
   // Complete aqui
+  const { username } = request.headers;
+
+  const user = users.find(
+    (user) => user.username === username
+    );
+
+  if(!user){
+    return response.status(400).json({ Warnning: 'User not found.'});
+  }
+
+  request.user = user;
+  return next();  
+
 };
 
 app.post('/users', (request, response) => { 
