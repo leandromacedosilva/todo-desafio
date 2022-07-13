@@ -41,14 +41,14 @@ app.post('/users', (request, response) => {
       return response.status(400).json({Warnning: 'User already exists in system.'});
     };
 
-  const users = {
+  const user = {
     id: uuidV4(),
     name,
     username,
     todos: []
   }
 
-  users.push({users});
+  users.push(user);
 
   return response.status(200).json({Warnning: 'User successfully  added to system'});
 });
